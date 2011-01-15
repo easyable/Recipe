@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<br> </br>
+<br> </br>
+
+<p>
+  <b>Title:</b>
+  <%= @recipe.title %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @recipe.recipe_kind.capitalize %>
+</p>
+<br> </br>
+
+<p>
+  <u><b>Ingredients</b></u><br/>
+	<table>
+	<th>Measurement</th>
+	<th>Ingredient</th>
+	<% @ingredients.each do |ingredient| %>
+		<tr>
+			<td><%= ingredient.size %></th> 
+			<td><%= ingredient.name %></td>
+		</tr>
+	<% end %>
+	</table>
+</p>
+
+<p>
+  <b>Instructions:</b><br/>
+  <%= @recipe.instructions %>
+</p>
+
+<p>
+  <b>Notes:</b><br/>
+  <%= @recipe.notes %>
+</p>
+
+<p>
+  <b>Published at:</b>
+  <%= @recipe.created_at.strftime("%m/%d/%y") %>
+</p>
+
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
+
+
+
+

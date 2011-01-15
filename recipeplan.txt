@@ -1,0 +1,10 @@
+Recipes
+
+# Class
+
+has_many :kinds_of
+has_many :ingredients
+--------------------------------------------------------
+
+way to list ingredients
+way to 

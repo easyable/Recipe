@@ -1,0 +1,49 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Category %><br />
+    <%= f.select(:recipe_kind, options_for_select([
+	["Breakfast", "breakfast"],
+	["Lunch", "lunch"],
+	["Dinner", "dinner"],
+	["Dessert", "dessert"],
+	["Soup/Salad", "soup_salad"],
+	["Snacks", "snacks"]
+	])) %>
+  </div>
+
+ <b>Ingredients</b>
+	<%= f.fields_for :ingredients do |builder| %>
+		<%= render "ingredient_fields", :f=>builder %>
+	<% end %>
+	<p><%= link_to_add_fields "Add Ingredient", f, :ingredients %></p>
+	
+  <div class="field">
+    <%= f.label :instructions %><br />
+    <%= f.text_area :instructions, :rows=>7, :columns=>50 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes, :rows=>5, :columns=>50 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<%= div_for recipe do %> 
+  <h3>
+    <%= link_to recipe.title, recipe %> 
+    <span class='actions'>
+      <%= link_to "Edit", edit_recipe_path(recipe) %>
+      <%= link_to "Delete", recipe, :confirm => "Are you sure?", 
+:method => :delete %>
+    </span> 
+  </h3>
+  <%= recipe.body %> 
+<% end %>
