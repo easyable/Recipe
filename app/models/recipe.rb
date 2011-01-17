@@ -6,9 +6,5 @@ class Recipe < ActiveRecord::Base
   accepts_nested_attributes_for :ingredients, :allow_destroy => true
   
   scope :where_title, lambda { |term| where("recipes.title LIKE ?", "%#{term}%")}
-  
-  
-  def long_title
-     "#{title} - #{recipe_kind}"
-  end       
-end
+end                       
+

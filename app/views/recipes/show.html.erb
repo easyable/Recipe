@@ -1,51 +1,52 @@
-<p id="notice"><%= notice %></p>
-<br> </br>
-<br> </br>
+<div class="box">
+	<p id="notice"><%= notice %></p>
+	<br> </br>
+	<br> </br>
 
-<p>
-  <b>Title:</b>
-  <%= @recipe.title %>
-</p>
+	<div class="box2">
+		<p>
+		  <%= @recipe.title %>
+		</p>
+	</div>
+	
+	<p>
+	  <b>Category:</b>
+	  <%= @recipe.recipe_kind.capitalize %>
+	</p>
+	<br> </br>
 
-<p>
-  <b>Category:</b>
-  <%= @recipe.recipe_kind.capitalize %>
-</p>
-<br> </br>
+	<p>
+	  <u><b>Ingredients</b></u><br/>
+		<table>
+		<th>Measurement</th>
+		<th>Ingredient</th>
+		<% @ingredients.each do |ingredient| %>
+			<tr>
+				<td><%= ingredient.size %></th> 
+				<td><%= ingredient.name %></td>
+			</tr>
+		<% end %>
+		</table>
+	</p>
 
-<p>
-  <u><b>Ingredients</b></u><br/>
-	<table>
-	<th>Measurement</th>
-	<th>Ingredient</th>
-	<% @ingredients.each do |ingredient| %>
-		<tr>
-			<td><%= ingredient.size %></th> 
-			<td><%= ingredient.name %></td>
-		</tr>
-	<% end %>
-	</table>
-</p>
+	<p>
+	  <b>Instructions:</b><br/>
+	  <%= @recipe.instructions %>
+	</p>
 
-<p>
-  <b>Instructions:</b><br/>
-  <%= @recipe.instructions %>
-</p>
+	<p>
+	  <b>Notes:</b><br/>
+	  <%= @recipe.notes %>
+	</p>
 
-<p>
-  <b>Notes:</b><br/>
-  <%= @recipe.notes %>
-</p>
-
-<p>
-  <b>Published at:</b>
-  <%= @recipe.created_at.strftime("%m/%d/%y") %>
-</p>
-
+	<p>
+	  <b>Published:</b>
+	  <%= @recipe.created_at.strftime("%m/%d/%y") %>
+	</p>
+</div>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
-
 
 
 

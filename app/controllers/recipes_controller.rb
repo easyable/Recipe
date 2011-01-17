@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
   # GET /recipes
-  # GET /recipes.xml
+  # GET /recipes.xml 
   def index
-    @recipes = Recipe.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @recipes }
-    end
+    @recipes = Recipe.all   
+     respond_to do |format|
+       format.html # index.html.erb
+       format.xml  { render :xml => @recipes }
+     end 
   end
 
   # GET /recipes/1
