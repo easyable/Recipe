@@ -1,5 +1,12 @@
 <h1>Recipe Listing</h1>
 
+<% form_tag recipes_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Recipes", :name => nil %>
+  </p>
+<% end %>
+
 <table>
   <tr>
     <th>Title</th>
