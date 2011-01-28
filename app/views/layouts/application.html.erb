@@ -8,7 +8,8 @@
 </head>
 <body>
   <div id="header">
-    <h1><%= link_to "St Jude Recipes", root_path %></h1> 
+    <h1><%= link_to "St Jude Recipes", root_path %></h1>
+	 <img src="images/shield.png" class="floatright">
     <div id="user_bar">
 	  <% if logged_in? %> 
 		<%= link_to "New Recipe", new_recipe_path %> | 
@@ -28,7 +29,7 @@
   <%= yield %>
 </div> 
 <div id="footer">
-  Family recipes compliments of the membership of <a href="http://stjudeandthenativity.org">St Jude and the Nativity Episcopal Church</a> Lafayette Hill, Pa 
+  Family recipes compliments of the membership of: <br> <a href="http://stjudeandthenativity.org">St Jude and the Nativity Episcopal Church</a><br>603 Germantown Pike<br>Lafayette Hill, PA 19444 
 
 </div>
 </body>

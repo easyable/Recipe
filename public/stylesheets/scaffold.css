@@ -6,6 +6,11 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+img.floatright {
+    float: right;
+    margin-right: 125px;
+    margin-top: 10px;
+}
 pre {
   background-color: #eee;
   padding: 10px;
