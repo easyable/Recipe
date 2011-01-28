@@ -2,16 +2,33 @@
 <html>
 <head>
   <title>Recipes</title>
+  <%= csrf_meta_tag %>
   <%= stylesheet_link_tag 'scaffold.css' %>
   <%= javascript_include_tag 'jquery-1.4.4.min.js', 'rails', 'application' %>
-  <%= csrf_meta_tag %>
+  <% logo = image_tag("episcopal-shield.png")
 </head>
 <body>
-	
-<%= content_tag :p, notice, :class => 'notice' if notice.present? %> 
-<%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+  <div id="header">
+    <h1><%= link_to "Recipes", root_path %></h1> 
+    <div id="user_bar">
+	  <% if logged_in? %> 
+		<%= link_to "New Recipe", new_recipe_path %> | 
+		<%= link_to "Edit Password", edit_user_path(current_user) %> | 
+		<%= link_to "Logout", logout_path %>
+	  <% else %> 
+	    <%= link_to "Login", login_path %>
+		<%= link_to "Register", register_path %>
+	  <% end %> 
+	</div>
+  </div> 
+<div id="main">	
+  <%= content_tag :p, notice, :class => 'notice' if notice.present? %> 
+  <%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+  <%= yield %>
+</div> 
+<div id="footer">
+  Family recipes compliments of the membership of <a href="http://stjudeandthenativity.org">St Jude and the Nativity Episcopal Church</a> Lafayette Hill, Pa 
 
-<%= yield %>
-
+</div>
 </body>
 </html>

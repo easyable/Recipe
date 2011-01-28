@@ -1,4 +1,4 @@
-body { background-color: #D1C7B7; color: #333; }
+body { background-color: #FFE2C8; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -42,9 +42,8 @@ div.field, div.actions {
 	text-align: center;
 }
 
-#notice {
-  color: green;
-}
+.notice { color: green; }
+.alert { color: red; }
 
 .field_with_errors {
   padding: 2px;

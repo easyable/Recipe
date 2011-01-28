@@ -41,11 +41,10 @@
 
 	<p>
 	  <b>Published:</b>
-	  <%= @recipe.created_at.strftime("%m/%d/%y") %>
+	  <%= @recipe.created_at.strftime("%m/%d/%y") %> by <%= User.find_by_id(@recipe.user_id).email %>
 	</p>
 </div>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
 
 

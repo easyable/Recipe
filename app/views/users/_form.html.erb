@@ -5,7 +5,7 @@
 prohibited this user from being saved:</h2>
     <ul>
 	<% @user.errors.full_messages.each do |msg| %>
-	  <li><%= mdsg %></li>
+	  <li><%= msg %></li>
 	<% end %>
 	</ul>
   </div>
@@ -24,6 +24,7 @@ prohibited this user from being saved:</h2>
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit %> 
+	<%= f.submit "Register" %> or 
+	<%= link_to "Cancel", root_url %> <br/>
   </div>
 <% end %>	  		  			

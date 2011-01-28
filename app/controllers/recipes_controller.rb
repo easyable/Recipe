@@ -1,8 +1,10 @@
 class RecipesController < ApplicationController
+before_filter :authenticate, :except => [:index, :show]    
   # GET /recipes
   # GET /recipes.xml 
   def index
     @recipes = Recipe.search(params[:search])
+    @current_user = current_user
      respond_to do |format|
        format.html # index.html.erb
        format.xml  { render :xml => @recipes }
@@ -23,7 +25,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   # GET /recipes/new.xml
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,13 +35,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   # POST /recipes
   # POST /recipes.xml
   def create
-    @recipe = Recipe.new(params[:recipe])
+    @recipe = current_user.recipes.new(params[:recipe])
 
     respond_to do |format|
       if @recipe.save
@@ -55,7 +57,7 @@ class RecipesController < ApplicationController
   # PUT /recipes/1
   # PUT /recipes/1.xml
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = current.recipes.find(params[:id])
 
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
@@ -71,7 +73,7 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.xml
   def destroy
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     @recipe.destroy
 
     respond_to do |format|

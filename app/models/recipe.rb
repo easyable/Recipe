@@ -5,14 +5,18 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, :dependent => :destroy  
   accepts_nested_attributes_for :ingredients, :allow_destroy => true
   
-  scope :where_title, lambda { |term| where("recipes.title LIKE ?", "%#{term}%")}
-
-    def self.search(search)
-      if search      
-        find(:all, :conditions => ['title LIKE ? and recipe_kind LIKE ?', "%#{search}%", "%#{search}%"])
-      else
-        find(:all)
-      end
-    end  
-end                       
+  def self.search(search)
+    if search      
+       find(:all, :conditions => ['title LIKE ? OR recipe_kind LIKE ?', "%#{search}%", "%#{search}%"])
+    else
+       find(:all)
+    end
+  end
+    
+  def owned_by?(owner) 
+      return false unless owner.is_a? User 
+      user == owner
+    end
+      
+end                      
 
