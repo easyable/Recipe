@@ -6,6 +6,7 @@
       <%= link_to "Edit", edit_recipe_path(recipe) %>
       <%= link_to "Delete", recipe, :confirm => "Are you sure?", 
 :method => :delete %>
+      <%= button_to_function("Print this Page", "javascript:print()") %>
     </span> 
   </h3>
 <% end %>

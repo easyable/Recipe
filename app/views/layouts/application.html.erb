@@ -5,19 +5,20 @@
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag 'scaffold.css' %>
   <%= javascript_include_tag 'jquery-1.4.4.min.js', 'rails', 'application' %>
-  <% logo = image_tag("episcopal-shield.png")
 </head>
 <body>
   <div id="header">
-    <h1><%= link_to "Recipes", root_path %></h1> 
+    <h1><%= link_to "St Jude Recipes", root_path %></h1> 
     <div id="user_bar">
 	  <% if logged_in? %> 
 		<%= link_to "New Recipe", new_recipe_path %> | 
 		<%= link_to "Edit Password", edit_user_path(current_user) %> | 
 		<%= link_to "Logout", logout_path %>
+		<%= button_to_function("Print this Page", "javascript:print()") %>
 	  <% else %> 
 	    <%= link_to "Login", login_path %>
 		<%= link_to "Register", register_path %>
+		<%= button_to_function("Print this Page", "javascript:print()") %>
 	  <% end %> 
 	</div>
   </div> 
