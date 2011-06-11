@@ -1,53 +1,61 @@
-body { background-color: #FFE2C8; color: #333; }
+body { 
+   background-color: #1569C7; 
+   color: #ffffff; 
+}
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: sans-serif;
   font-size:   13px;
   line-height: 18px;
 }
 
-img.floatright {
-    float: right;
-    margin-right: 125px;
-    margin-top: 10px;
+img {
+	width: 5%;
+	height: 5%;
 }
+
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
+  font-size: 11px
 }
 
-a { color: #000; }
-a:visited { color: #666; }
+a { color: #FFFFFF; }
+a:visited { color: #ffffff; }
 a:hover { color: #fff; background-color:#000; }
 
 div.field, div.actions {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .box {
-        width: 600px;
+        margin-left:auto;
+		margin-right:auto;
+        width:600px;
         border: solid #884400;
         border-width: 8px 3px 8px 3px;
-        background-color: #ccaa77;
+        background-color: #7E3117;
+        color:#ffff00;
 }
 
 
 .box2{
 	margin-left:auto;
 	margin-right:auto;	
-	width: 550px;
+	width: 450px;
     border: solid #884400;
     border-width: 8px 3px 8px 3px;
     background-color: #F87431;
+    color: #000000
 }
+
 
 .box2 p{
 	font-size: 200%;
 	text-align: center;
 }
 
-.notice { color: green; }
+.notice { color: #ffff00; }
 .alert { color: red; }
 
 .field_with_errors {

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       # Filter method to enforce a login requirement
       # Apply as a before_filter on any controller you want to protect
       def authenticate
-        logged_in? ? true : access_denied
+        logged_in? ? true :access_denied
       end
 
       # Predicate method to test for a logged in user

@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
   validates :title, :presence => true
+  validates :ingredients, :presence => true
   
   belongs_to :user
   has_many :ingredients, :dependent => :destroy  
@@ -16,7 +17,6 @@ class Recipe < ActiveRecord::Base
   def owned_by?(owner) 
       return false unless owner.is_a? User 
       user == owner
-    end
-      
+  end
 end                      
 

@@ -1,4 +1,5 @@
-body { }
+body{}
+
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -22,8 +23,7 @@ div.field, div.actions {
 
 
 
-#box{
-	
+#box{ 
 }
 
 .box {
@@ -67,3 +67,5 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+

@@ -75,7 +75,7 @@ before_filter :authenticate, :except => [:index, :show]
   def destroy
     @recipe = current_user.recipes.find(params[:id])
     @recipe.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to(recipes_url) }
       format.xml  { head :ok }

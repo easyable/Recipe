@@ -4,8 +4,7 @@
     <% if recipe.owned_by? current_user %> 
     <span class='actions'>
       <%= link_to "Edit", edit_recipe_path(recipe) %>
-      <%= link_to "Delete", recipe, :confirm => "Are you sure?", 
-:method => :delete %>
+      <%= link_to "Delete", recipe, :confirm => "Are you sure?", :method => :delete %>
       <%= button_to_function("Print this Page", "javascript:print()") %>
     </span> 
   </h3>

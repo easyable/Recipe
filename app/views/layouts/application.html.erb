@@ -4,32 +4,43 @@
   <title>Recipes</title>
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag 'scaffold.css' %>
-  <%= javascript_include_tag 'jquery-1.4.4.min.js', 'rails', 'application' %>
+  <%= javascript_include_tag 'jquery-1.4.3.min', 'rails', 'application' %>
 </head>
 <body>
-  <div id="header">
-    <h1><%= link_to "St Jude Recipes", root_path %></h1>
-	 <img src="images/shield.png" class="floatright">
+   
+	<div id="img">	 
+	  <%= link_to image_tag("shield.png"), root_path %>	
+	</div>
+	<br/>
+    <div id="header">
+      <h2><%= link_to "St Jude Recipes", root_path %></h2>
+    </div>
+   
+ 
     <div id="user_bar">
 	  <% if logged_in? %> 
 		<%= link_to "New Recipe", new_recipe_path %> | 
 		<%= link_to "Edit Password", edit_user_path(current_user) %> | 
-		<%= link_to "Logout", logout_path %>
-		<%= button_to_function("Print this Page", "javascript:print()") %>
+		<%= link_to "Logout", logout_path %> |
+		<%= link_to_function("Print this Page", "javascript:print()") %>
 	  <% else %> 
-	    <%= link_to "Login", login_path %>
-		<%= link_to "Register", register_path %>
-		<%= button_to_function("Print this Page", "javascript:print()") %>
+	    <%= link_to "Login", login_path %> |
+		<%= link_to "Register", register_path %> |
+		<%= link_to_function("Print this Page", "javascript:print()") %>
 	  <% end %> 
 	</div>
   </div> 
+
+
 <div id="main">	
+  
   <%= content_tag :p, notice, :class => 'notice' if notice.present? %> 
   <%= content_tag :p, alert, :class => 'alert' if alert.present? %>
   <%= yield %>
-</div> 
+</div>
+  	
 <div id="footer">
-  Family recipes compliments of the membership of: <br> <a href="http://stjudeandthenativity.org">St Jude and the Nativity Episcopal Church</a><br>603 Germantown Pike<br>Lafayette Hill, PA 19444 
+  <br><br>Family recipes compliments of the membership of: <br> <a href="http://stjudeandthenativity.org">St Jude and the Nativity Episcopal Church</a><br>203 Germantown Pike<br>Lafayette Hill, PA 19444 
 
 </div>
 </body>

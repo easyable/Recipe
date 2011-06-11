@@ -30,7 +30,7 @@
 
  <b>Ingredients</b>
 	<%= f.fields_for :ingredients do |builder| %>
-		<%= render "ingredient_fields", :f=>builder %>
+		<%= render "ingredient_fields", :f => builder %>
 	<% end %>
 	<p><%= link_to_add_fields "Add Ingredient", f, :ingredients %></p>
 	
