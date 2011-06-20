@@ -61,7 +61,7 @@ before_filter :authenticate, :except => [:index, :show]
 
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
-        format.html { redirect_to(@recipe, :notice => 'Recipe was successfully updated.') }
+        format.html { redirect_to(@recipe, :alert => 'Recipe was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
