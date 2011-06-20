@@ -57,7 +57,7 @@ before_filter :authenticate, :except => [:index, :show]
   # PUT /recipes/1
   # PUT /recipes/1.xml
   def update
-    @recipe = current.recipes.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
 
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])

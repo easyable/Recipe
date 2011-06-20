@@ -1,8 +1,14 @@
 Brian::Application.routes.draw do
-  root :to => "recipes#index"
+  root :to => 'sites#home'
   resources :recipes 
   resources :users
   resource :session
+  
+  match '/home_path',      :to => 'sites#home'
+  match '/contact_path',   :to => 'sites#contact'
+  match '/recipes_path',   :to => 'recipes#index'
+  match '/about_path',     :to => 'sites#about'
+  match '/services_path',  :to => 'sites#services'
   match '/login' => "sessions#new", :as => "login" 
   match '/logout' => "sessions#destroy", :as => "logout"
   match '/register' => "users#new", :as => "register"

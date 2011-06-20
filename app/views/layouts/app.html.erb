@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipes</title>
+  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag 'scaffold.css' %>
+  <%= javascript_include_tag 'jquery-1.4.3.min', 'rails', 'application' %>
+</head>
+<body>
+   
+	<div id="img">	 
+	  <%= link_to image_tag("shield.png"), root_path %>	
+	</div>
+	<br/>
+    <div id="header">
+      <h2><%= link_to "St Jude Recipes", root_path %></h2>
+    </div>
+   
+ 
+    <div id="user_bar">
+	  <% if logged_in? %> 
+		<%= link_to "New Recipe", new_recipe_path %> | 
+		<%= link_to "Edit Password", edit_user_path(current_user) %> | 
+		<%= link_to "Logout", logout_path %> |
+		<%= link_to_function("Print this Page", "javascript:print()") %>
+	  <% else %> 
+	    <%= link_to "Login", login_path %> |
+		<%= link_to "Register", register_path %> |
+		<%= link_to_function("Print this Page", "javascript:print()") %>
+	  <% end %> 
+	</div>
+  </div> 
+
+
+<div id="main">	
+  
+  <%= content_tag :p, notice, :class => 'notice' if notice.present? %> 
+  <%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+  <%= yield %>
+</div>
+  	
+<div id="footer">
+  <br><br>Family recipes compliments of the membership of: <br> <a href="http://stjudeandthenativity.org">St Jude and the Nativity Episcopal Church</a><br>203 Germantown Pike<br>Lafayette Hill, PA 19444 
+
+</div>
+</body>
+</html>

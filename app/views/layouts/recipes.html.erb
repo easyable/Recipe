@@ -26,8 +26,8 @@ Released for free under a Creative Commons Attribution 2.5 License
 	        <%= link_to "Login", login_path %> |
 		    <%= link_to "Register", register_path %> |
 		    <%= link_to_function("Print this Page", "javascript:print()") %>
-	      <% end %> 
-	    </div>
+	    <% end %> 
+	  </div>
 	</h2>
 </div>
 <div id="menu">
@@ -61,10 +61,15 @@ Released for free under a Creative Commons Attribution 2.5 License
 </div>
 <div id="splash"><img src="/images/img2.jpg" alt="" width="514" height="213" /></div>
 <div id="content" class="bg2">
-<%= yield %>
+	<div id="main">	
+
+	  <%= content_tag :p, notice, :class => 'notice' if notice.present? %> 
+	  <%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+	  <%= yield %>
+	</div>
 </div>
 <div id="footer" class="bg3">
-	<p>Copyright &copy; 2011 ezable.com. Designed by <a href="http://freecsstemplates.org"><strong>EZ Able Web Dev</strong></a></p>
+	<p>Copyright &copy; 2011 ezable.com. Designed by <a href="http://freecsstemplates.org"><strong>EZ Able Web Development</strong></a></p>
 </div>
 </body>
 </html>
