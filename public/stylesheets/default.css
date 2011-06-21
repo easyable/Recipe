@@ -9,7 +9,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 body {
 	background: #60AE5F;
-	text-align: center;
+	text-align: justify;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	color: #333333;
@@ -145,6 +145,27 @@ a:hover {
 	float: left;
 	width: 160px;
 	padding: 0 0 0 15px;
+}
+.box {
+        margin-left:auto;
+		margin-right:auto;
+        width:100;
+         border: solid #fff;
+        border-width: 0px 15px 20px 15px;        
+}
+
+
+.box2{
+	margin-left:auto;
+	margin-right:auto;	
+	width: 300px;
+    border-width: 8px 3px 8px 3px;
+}
+
+
+.box2 p{
+	font-size: 200%;
+	text-align: center;
 }
 
 /* Footer */

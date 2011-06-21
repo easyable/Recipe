@@ -1,5 +1,6 @@
-<h1>Recipe Listing</h1>
-   <%= form_tag recipes_path, :method => 'get' do %>
+<h1><center>Recipe Listing</center></h1>
+<div class= box>   
+  <%= form_tag recipes_path, :method => 'get' do %>
   <p>
 	<b>Search by Title or Category:</b>  
     <%= text_field_tag :search, params[:search] %>
@@ -38,4 +39,4 @@
 
 </table>
 <% end %>
-
+</div>

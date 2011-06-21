@@ -1,14 +1,8 @@
 <div class="box">
 	<p id="notice"><%= notice %></p>
-	<br> </br>
-	<br> </br>
-
-	<div class="box2">
-		<p>
-		  <h1><%= @recipe.title %></h1>
-		</p>
-	</div>
-	
+	<p>
+	  <h1><center><%= @recipe.title %></center></h1>
+	</p>	
 	<p>
 	  <b>Category:</b>
 	  <%= @recipe.recipe_kind.capitalize %>
@@ -44,7 +38,7 @@
 	</p>
 </div>
 
-<%= link_to 'Back', recipes_path %>
+<div><center><%= link_to 'Back', recipes_path %></center></div>
 
 
 
