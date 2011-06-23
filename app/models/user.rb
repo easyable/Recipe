@@ -5,13 +5,14 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true,
             :length => { :within => 5..50 },
             :format => { :with => /^[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}$/i }
-validates :password, :confirmation => true, 
-                     :length => { :within => 4..20 },
-                     :presence => true, 
-                     :if => :password_required?          
+  validates :password, :confirmation => true, 
+                       :length => { :within => 4..20 },
+                       :presence => true, 
+                       :if => :password_required?          
   
   has_one :profile
-  has_many :recipes, :order => 'title ASC'
+  has_many :recipes, :order => 'title ASC',
+                     :dependent => :destroy
            
   before_save :encrypt_new_password
   
@@ -21,7 +22,7 @@ validates :password, :confirmation => true,
   end
   
   def authenticated?(password)
-    self.hashed_password = encrypt(password)
+    self.hashed_password == encrypt(password)
   end
   
   protected
@@ -31,7 +32,7 @@ validates :password, :confirmation => true,
     end
     
     def password_required?
-      hashed_password.blank?  || password.present?
+      hashed_password.blank? || password.present?
     end
     
     def encrypt(string)

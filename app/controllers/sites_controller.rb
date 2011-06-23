@@ -19,5 +19,11 @@ class SitesController < ApplicationController
   
   def contact
   @title = "Contact"
+  @current_user = current_user
+  if request.post?
+    Mailer.interest(params[:contact]).deliver
+    flash[:notice] = "Message sent!" 
+    redirect_to :action => 'contact'
+  end
   end
 end        
