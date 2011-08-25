@@ -1,5 +1,6 @@
 <h1><center>Recipe Listing</center></h1>
-<div class= box>   
+<%= paginate @recipes%>
+<div class= box>     
   <%= form_tag recipes_path, :method => 'get' do %>
   <p>
 	<b>Search by Title or Category:</b>  

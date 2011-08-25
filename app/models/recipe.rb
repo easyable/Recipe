@@ -8,7 +8,7 @@ class Recipe < ActiveRecord::Base
   
   def self.search(search)
     if search      
-       find(:all, :conditions => ['title LIKE ? OR recipe_kind LIKE ?', "%#{search}%", "%#{search}%"])
+       where('title LIKE ? OR recipe_kind LIKE ?', "%#{search}%", "%#{search}%")
     else
        find(:all)
     end

@@ -3,8 +3,11 @@ before_filter :authenticate, :except => [:index, :show]
   # GET /recipes
   # GET /recipes.xml 
   def index
-    @recipes = Recipe.all
-    @recipes = Recipe.search(params[:search])
+    if params[:search]
+        @recipes = Recipe.search(params[:search]).page(params[:page]).per(2)
+    else
+        @recipes = Recipe.page(params[:page]).per(2)
+    end
     @current_user = current_user
      respond_to do |format|
        format.html # index.html.erb
